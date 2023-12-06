@@ -1,0 +1,119 @@
+@import "global.css";
+
+#content .main-image {
+  height: 100vh;
+  object-fit: cover;
+}
+
+#content .circle {
+  width: 400px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -300px;
+  margin-left: -200px;
+  transform-style: preserve-3d;
+  animation: ani linear 30s infinite;
+}
+
+@keyframes ani {
+  0% {
+    transform: rotateY(0deg);
+  }
+  0% {
+    transform: rotateY(360deg);
+  }
+}
+
+#content .circle article {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  backface-visibility: hidden;
+}
+
+#content .circle article h1 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  font-size: 1.25rem;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#content .circle article:hover h1 {
+  top: -45px;
+  opacity: 1;
+}
+#content .circle article .inner {
+  width: 100%;
+  height: 100%;
+}
+
+#content .circle article .inner > div {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 50px;
+  position: relative;
+  opacity: 0.7;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+#content .circle article .inner > div:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+#content .circle .inner > div {
+  width: 100%;
+  height: 100%;
+}
+
+#content .circle .inner > div img {
+  width: 300px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+#content .circle .inner > div h3 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+#content .circle .inner > div p {
+  color: #ccc;
+  font-size: 0.8rem;
+}
+
+.face1 {
+  transform: rotateY(0deg) translateZ(-509px);
+}
+.face2 {
+  transform: rotateY(45deg) translateZ(-509px);
+}
+.face3 {
+  transform: rotateY(90deg) translateZ(-509px);
+}
+.face4 {
+  transform: rotateY(135deg) translateZ(-509px);
+}
+.face5 {
+  transform: rotateY(180deg) translateZ(-509px);
+}
+.face6 {
+  transform: rotateY(225deg) translateZ(-509px);
+}
+.face7 {
+  transform: rotateY(270deg) translateZ(-509px);
+}
+.face8 {
+  transform: rotateY(315deg) translateZ(-509px);
+}

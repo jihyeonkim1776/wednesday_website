@@ -1,0 +1,115 @@
+@import "global.css";
+
+#face-illustration img {
+  width: 300px;
+
+  inset: 0;
+  margin: 100px auto;
+}
+
+#intro-main .text-group {
+  text-align: center;
+  color: var(--color-title);
+  padding-bottom: 100px;
+}
+#intro-main h2 {
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+#intro-main p {
+  font-size: 0.75rem;
+  margin-bottom: 40px;
+}
+
+@keyframes moveLeftRight {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.inner {
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+.clue {
+  position: relative;
+}
+.clue .contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.clue .contents #body {
+  animation: moveLeftRight 5s infinite both;
+  position: absolute;
+  left: 800px;
+}
+.clue .contents #wood {
+  width: 50%;
+}
+
+/* main-story */
+
+#main-story .text-group {
+  text-align: center;
+  color: var(--color-title);
+  padding-bottom: 100px;
+  margin-top: 100px;
+}
+#main-story h2 {
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+#main-story p {
+  font-size: 0.75rem;
+  margin-bottom: 40px;
+}
+
+/* list */
+
+.letter {
+  background-image: url("../images/paper1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+#list-item-wrapper {
+  margin: 0 auto 200px;
+  padding: 50px 10px 150px;
+  width: 500px;
+  color: darkgray;
+  font-size: 0.65rem;
+  line-height: 1.25rem;
+  text-align: justify;
+}
+
+.list-item {
+  display: inline;
+
+  font-weight: 600;
+  transition: 0.6s;
+}
+
+.list-item#on {
+  color: var(--color-title);
+  font-size: 0.68rem;
+}
+
+/* video */
+
+#video {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 200px;
+}
+
+#video video {
+  width: 500px;
+}

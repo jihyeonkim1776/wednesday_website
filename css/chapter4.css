@@ -1,0 +1,162 @@
+@import "global.css";
+
+figure {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-image: linear-gradient(
+    90deg,
+    rgba(6, 3, 46, 1) 0%,
+    rgba(81, 24, 107, 1) 27%,
+    rgba(58, 13, 168, 1) 100%
+  );
+}
+
+figure h1 {
+  position: absolute;
+  top: 7vh;
+  left: 4vw;
+  font-size: 0;
+}
+
+figure h1 strong {
+  font-size: 36px;
+  color: #fff;
+  line-height: 1.4;
+  letter-spacing: 1px;
+}
+
+figure h1 span {
+  font-size: 12px;
+  color: #fff;
+  opacity: 0.8;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+figure .menu {
+  position: absolute;
+  top: 8vh;
+  right: 4vw;
+  font-size: 24px;
+  color: #fff;
+}
+
+figure > p {
+  position: absolute;
+  bottom: 7vh;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+figure section {
+  width: 15vw;
+  height: 45vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+figure section article {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+/* figure section article .inner {
+  width: 100%;
+  height: 100%;
+  background: #f0f8ff;
+  padding: 5vh 2.5vw 8vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-content: space-between;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0.6;
+  transform: scale(0.8);
+} */
+
+.flip-card-inner {
+  perspective: 600px;
+}
+
+.flip-card-inner .item {
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  transition: 1s;
+}
+
+.flip-card-inner .item img {
+  border-radius: 13px;
+}
+
+/* Style the front side (fallback if image is missing) */
+.item.flip-card-front {
+  position: absolute;
+}
+
+.flip-card-inner.flip .item.flip-card-front {
+  transform: rotateY(180deg);
+}
+
+/* Style the back side */
+.flip-card-back {
+  transform: rotateY(-180deg);
+}
+
+.flip-card-inner.flip .item.flip-card-back {
+  transform: rotateY(0deg);
+}
+
+/* text */
+article .text {
+  text-align: center;
+  margin-top: 20px;
+  visibility: hidden;
+}
+
+article .text span {
+  display: inline-block;
+  text-shadow: 0 0 0 whitesmoke;
+  animation: smoky 5s 3s both;
+
+  font-weight: 500;
+}
+
+article .text span:nth-child(even) {
+  animation-name: smoky-mirror;
+}
+
+@keyframes smoky {
+  60% {
+    text-shadow: 0 0 40px whitesmoke;
+  }
+  to {
+    transform: translate3d(15rem, -8rem, 0) rotate(-40deg) skewX(70deg)
+      scale(1.5);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+  }
+}
+
+@keyframes smoky-mirror {
+  60% {
+    text-shadow: 0 0 40px whitesmoke;
+  }
+  to {
+    transform: translate3d(18rem, -8rem, 0) rotate(-40deg) skewX(-70deg)
+      scale(2);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+  }
+}

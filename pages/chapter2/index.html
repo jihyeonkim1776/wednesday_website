@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--브라우저 스타일 초기화-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <link rel="stylesheet" href="../../css/chapter2.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <nav>
+          <h1><a href="/">logo</a></h1>
+          <ul class="menu">
+            <li>
+              <a href="../chapter1/">chapter1</a>
+            </li>
+            <li>
+              <a href="../chapter3/">chapter3</a>
+            </li>
+            <li>
+              <a href="../chapter4/">chapter4</a>
+            </li>
+            <li>
+              <a href="../chapter5/">chapter5</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div id="content">
+        <section id="main-story">
+          <div class="inner">
+            <div class="text-group">
+              <h2 class="title">chapter2</h2>
+              <p class="heading">
+                freestar freestar Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit.
+              </p>
+              <p class="description">
+                freestar freestar Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Vivamus feugiat, turpis sit amet scelerisque
+                gravida, tellus neque malesuada orci, in aliquet nulla ligula
+                non libero. Aenean semper malesuada nisi eu consequat.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- list -->
+        <section class="letter">
+          <ul id="list-item-wrapper">
+            Dear Donovan Galpin,
+            <br />
+
+            The rain beat against the window, a relentless rhythm I sat in my
+            dimly lit office, the only company being the shadows dancing on the
+            walls. The rain beat against the window, a relentless rhythm that
+            matched the pounding in my head. I sat in my dimly lit office, the
+            only company being the shadows dancing on the walls.
+            <li class="list-item">
+              Another gloomy night in this city of secrets.
+            </li>
+            I took a drag from my cigarette, the smoke swirling in the air like
+            the unanswered questions that plagued my mind. I took a drag from my
+            cigarette, the smoke swirling in the air like the unanswered
+            questions that plagued my mind. Eyes that hinted at a past too
+            painful to forget, and lips that whispered a tale of deceit.
+            <li class="list-item">
+              She begged me to find her missing husband, a wealthy tycoon
+              entangled in a web of lies.
+            </li>
+            I knew this wasn't going to be a walk in the park.
+            <li class="list-item">
+              The city had a way of chewing up the truth and spitting out
+              something far from it.
+            </li>
+            I started by retracing his steps, visiting the smoky joints and dark
+            alleys he frequented. My gut told me she held the key to this
+            puzzle. As I dug deeper, the city's underbelly revealed its secrets.
+            <li class="list-item">
+              ach page turned brought me closer to the truth, but also closer to
+              the danger that lurked in the shadows.
+            </li>
+            E The dame's tears had me hooked, but the city taught me never to
+            trust a pretty face. As I followed the trail of deceit, I couldn't
+            shake the feeling that the real story was yet to reveal itself. One
+            thing was for sure – in this city, the truth was a rare gem, and I
+            was about to unearth it, no matter the cost.
+          </ul>
+        </section>
+
+        <section id="video">
+          <figure>
+            <div class="goody">
+              <video src="../../video/goody.mp4" muted loop></video>
+            </div>
+          </figure>
+        </section>
+      </div>
+      <script type="module">
+        const listStyleChangeStartY = 100;
+        const listStyleChangeEndY = 1000;
+        const videoEl = document.querySelector("#video video");
+
+        const listItems = document.querySelectorAll(".list-item");
+        const division =
+          (listStyleChangeEndY - listStyleChangeStartY) / listItems.length;
+
+        window.addEventListener("scroll", () => {
+          console.log(window.scrollY);
+          if (document.getElementById("on"))
+            document.getElementById("on").removeAttribute("id");
+
+          if (
+            window.scrollY > listStyleChangeStartY &&
+            window.scrollY < listStyleChangeEndY
+          ) {
+            const targetIndex = Math.round(
+              (window.scrollY - listStyleChangeStartY) / division
+            );
+
+            if (listItems[targetIndex]) listItems[targetIndex].id = "on";
+          }
+          if (window.scrollY >= listStyleChangeEndY) videoEl.play();
+        });
+      </script>
+    </main>
+  </body>
+</html>

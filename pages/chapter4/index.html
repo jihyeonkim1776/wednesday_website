@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--브라우저 스타일 초기화-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/chapter4.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <nav>
+          <h1><a href="/">logo</a></h1>
+          <ul class="menu">
+            <li>
+              <a href="../chapter1/">chapter1</a>
+            </li>
+            <li>
+              <a href="../chapter2/">chapter2</a>
+            </li>
+            <li>
+              <a href="../chapter3/">chapter3</a>
+            </li>
+            <li>
+              <a href="../chapter5/">chapter5</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div id="content">
+        <figure>
+          <a href="#" class="menu"> <i class="fas fa-bars"></i> </a>
+
+          <section class="flip-card">
+            <article class="flip-card-inner">
+              <div class="item flip-card-front">
+                <img src="../../images/card-back.png" alt="" />
+              </div>
+              <div class="item flip-card-back">
+                <img src="../../images/card1.png" alt="" />
+              </div>
+              <div class="text">
+                <p>The High Priestess</p>
+              </div>
+            </article>
+            <article class="flip-card-inner">
+              <div class="item flip-card-front">
+                <img src="../../images/card-back.png" alt="" />
+              </div>
+              <div class="item flip-card-back">
+                <img src="../../images/card2.png" alt="" />
+              </div>
+              <div class="text">
+                <p>Death</p>
+              </div>
+            </article>
+            <article class="flip-card-inner">
+              <div class="item flip-card-front">
+                <img src="../../images/card-back.png" alt="" />
+              </div>
+              <div class="item flip-card-back">
+                <img src="../../images/card3.png" alt="" />
+              </div>
+              <div class="text"><p>Justine</p></div>
+            </article>
+            <article class="flip-card-inner">
+              <div class="item flip-card-front">
+                <img src="../../images/card-back.png" alt="" />
+              </div>
+              <div class="item flip-card-back">
+                <img src="../../images/card4.png" alt="" />
+              </div>
+              <div class="text"><p>The Hermit</p></div>
+            </article>
+            <article class="flip-card-inner">
+              <div class="item flip-card-front">
+                <img src="../../images/card-back.png" alt="" />
+              </div>
+              <div class="item flip-card-back">
+                <img src="../../images/card5.png" alt="" />
+              </div>
+            </article>
+            <article class="flip-card-inner">
+              <div class="item flip-card-front">
+                <img src="../../images/card-back.png" alt="" />
+              </div>
+
+              <div class="item flip-card-back">
+                <img src="../../images/card6.png" alt="" />
+              </div>
+              <div class="text"><p>The Star</p></div>
+            </article>
+            <article class="flip-card-inner">
+              <div class="item flip-card-front">
+                <img src="../../images/card-back.png" alt="" />
+              </div>
+              <div class="item flip-card-back">
+                <img src="../../images/card7.png" alt="" />
+              </div>
+              <div class="text"><p>Strength</p></div>
+            </article>
+            <article class="flip-card-inner">
+              <div class="item flip-card-front">
+                <img src="../../images/card-back.png" alt="" />
+              </div>
+              <div class="item flip-card-back">
+                <img src="../../images/card8.png" alt="" />
+              </div>
+              <div class="text"><p>Wheel of Fortune</p></div>
+            </article>
+          </section>
+        </figure>
+      </div>
+    </main>
+    <script defer>
+      const frame = document.querySelector("section");
+      const lists = frame.querySelectorAll("article");
+      const deg = 45;
+      const len = lists.length - 1;
+      let i = 0;
+
+      for (let el of lists) {
+        el.style.transform = `rotate(${deg * i}deg) translateY(-70vh)`;
+        i++;
+      }
+
+      const flipCards = document.querySelectorAll(".flip-card-inner");
+      let isAnimating = false;
+
+      flipCards.forEach((card, index) => {
+        const textContainer = card.querySelector(".text p"); // 해당 카드의 텍스트 컨테이너 선택
+
+        card.addEventListener("click", function () {
+          if (isAnimating) {
+            // If animation is in progress, do nothing
+            return;
+          }
+
+          // Set the animation state to true
+          isAnimating = true;
+
+          card.style.transform = `rotate(0deg)`;
+
+          card.style.transition = "top 1.5s";
+          card.style.top = "0.05vh";
+
+          card.classList.add("flip");
+
+          const text = textContainer.textContent;
+          const spannedText = text
+            .split("") // 문자열을 배열로 변환
+            .map((char) =>
+              char === " " ? "<span>&nbsp;</span>" : `<span>${char}</span>`
+            ) // 각 문자를 span 태그로 감싸기
+            .join(""); // 배열을 다시 문자열로 결합
+          textContainer.innerHTML = spannedText; // span 태그로 감싸진 문자열을 설정
+
+          textContainer.style.visibility = "visible";
+
+          setTimeout(() => {
+            card.classList.remove("flip");
+          }, 3000);
+          setTimeout(() => {
+            textContainer.style.visibility = "hidden";
+          }, 4500);
+
+          setTimeout(() => {
+            for (let el of lists) {
+              el.style.transform = `rotate(${deg * i}deg) translateY(-70vh)`;
+              i++;
+            }
+            isAnimating = false;
+          }, 4500);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--브라우저 스타일 초기화-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../css/chapter3.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="inner">
+          <h1><a href="/">logo</a></h1>
+          <ul class="menu">
+            <li>
+              <a href="../chapter1/">chapter1</a>
+            </li>
+            <li>
+              <a href="../chapter2/">chapter2</a>
+            </li>
+            <li>
+              <a href="../chapter4/">chapter4</a>
+            </li>
+            <li>
+              <a href="../chapter5/">chapter5</a>
+            </li>
+          </ul>
+        </div>
+      </header>
+
+      <section class="video-showing">
+        <article>
+          <div class="inner">
+            <div class="txt">
+              <h2>01</h2>
+              <p>
+                freestar freestar Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit.
+              </p>
+            </div>
+            <figure>
+              <video src="../../video/video1.mp4" muted loop></video>
+            </figure>
+          </div>
+        </article>
+        <article>
+          <div class="inner">
+            <div class="txt">
+              <h2>02</h2>
+              <p>
+                freestar freestar Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit.
+              </p>
+            </div>
+            <figure>
+              <video src="../../video/video2.mp4" muted loop></video>
+            </figure>
+          </div>
+        </article>
+        <article>
+          <div class="inner">
+            <div class="txt">
+              <h2>03</h2>
+              <p>
+                freestar freestar Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit.
+              </p>
+            </div>
+            <figure>
+              <video src="../../video/video3.mp4" muted loop></video>
+            </figure>
+          </div>
+        </article>
+        <article>
+          <div class="inner">
+            <div class="txt">
+              <h2>04</h2>
+              <p>
+                freestar freestar Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit.
+              </p>
+            </div>
+            <figure>
+              <video src="../../video/video4.mp4" muted loop></video>
+            </figure>
+          </div>
+        </article>
+      </section>
+      <script defer>
+        const items = document.querySelectorAll("article");
+
+        for (let el of items) {
+          el.addEventListener("mouseenter", (e) => {
+            e.currentTarget.querySelector("video").play();
+          });
+
+          el.addEventListener("mouseleave", (e) => {
+            e.currentTarget.querySelector("video").pause();
+          });
+        }
+      </script>
+    </main>
+  </body>
+</html>
