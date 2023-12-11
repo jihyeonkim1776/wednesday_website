@@ -23,38 +23,38 @@ html.fixed {
 }
 .visual .text-group {
   position: absolute;
-  width: 700px;
-  padding-left: 200px;
+  width: 100%;
+  padding-left: 10vw;
   padding-top: 150px;
   color: rgb(206, 130, 53);
 }
 .visual .title {
   margin-bottom: 20px;
-  font-size: 2rem;
+  font-size: 6vh;
   font-weight: 900;
 }
 
 .visual .heading {
   margin-bottom: 10px;
-  font-size: 0.75rem;
+  font-size: 3vh;
 }
 .visual .description {
-  font-size: 0.55rem;
+  font-size: 2vh;
 }
 
 .tree #tree1 {
   position: absolute;
-  top: -10px;
+  top: 150px;
   right: -100px;
-  width: 1000px;
+  width: 100%
   height: auto;
 }
 
 .tree #tree2 {
   position: absolute;
-  top: -20px;
+  top: 130px;
   left: -200px;
-  width: 1000px;
+  width: 100%
   height: auto;
 }
 
@@ -62,7 +62,7 @@ html.fixed {
   position: absolute;
   top: 250px;
   left: 50%;
-  width: 70px;
+  width: 10%;
   height: auto;
   visibility: hidden;
 }
@@ -78,12 +78,13 @@ html.fixed {
   color: var(--color-title);
 }
 .reason h2 {
-  font-size: 1rem;
+  font-size: var(--size-title);
   margin-bottom: 40px;
 }
 .reason p {
-  font-size: 0.75rem;
+  font-size: var(--size-description);
   margin-bottom: 40px;
+  line-height: 1.4;
 }
 
 /*YOUTUBE VIDEO*/
@@ -94,21 +95,21 @@ html.fixed {
   overflow: hidden;
 }
 .youtube .youtube__area {
-  width: 1200px;
+  width: 100%;
   position: absolute;
   /* 16비율 */
-  left: 50%;
-  margin-left: calc(1200px / -2);
+
   /* 9비율 */
   top: 50%;
-  margin-top: calc(1200px * 9 / 16 / -2);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 56.25%;
 }
 .youtube .youtube__area::before {
   content: "";
   display: block;
   /* 16:9 영상 비율로 요소 크기 만들기! */
   width: 100%;
-
   padding-top: 56.25%;
 }
 .youtube .youtube__cover {
@@ -118,7 +119,6 @@ html.fixed {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
-
   background-image: url("../images/video_cover_pattern.png");
 }
 #player {
@@ -140,10 +140,11 @@ html.fixed {
   overflow: hidden;
 }
 
-.dorm #fog1 {
-  position: absolute;
-  top: 200px;
-  left: -20px;
+
+
+.dorm img {
+  width: 100%;
+  max-width: 100%;
 }
 .dorm img#dorm {
   box-shadow: 0 20px 50px 30px rgb(13, 13, 13),
@@ -156,11 +157,12 @@ html.fixed {
   padding-bottom: 100px;
 }
 .dorm h2 {
-  font-size: 1rem;
+  font-size: var(--size-title);
   margin-bottom: 40px;
 }
 .dorm p {
-  font-size: 0.75rem;
+  font-size: var(--size-description);
+  line-height: 1.4;
   margin-bottom: 40px;
 }
 
@@ -177,11 +179,12 @@ html.fixed {
   padding-bottom: 100px;
 }
 .search h2 {
-  font-size: 1rem;
+  font-size: var(--size-title);
   margin-bottom: 40px;
 }
 .search p {
-  font-size: 0.75rem;
+  font-size: var(--size-description);
+  line-height: 1.4;
   margin-bottom: 40px;
 }
 
@@ -204,10 +207,10 @@ html.fixed {
 
 .figure .bg > h2 {
   color: var(--color-title);
-  font-size: 1.25rem;
+  font-size: var(--size-point);
   position: absolute;
   top: 30px;
-  left: 100px;
+  left: 10px;
 }
 
 .figure article img {
@@ -216,6 +219,8 @@ html.fixed {
   filter: grayscale(80%);
   display: block;
   margin-bottom: -10px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .figure article:hover img {
@@ -229,7 +234,7 @@ html.fixed {
 
 .figure article .text-group {
   position: absolute;
-  top: 300px;
+  bottom: 5vh;
   color: var(--color-title);
   width: 300px;
   opacity: 0;
@@ -241,7 +246,7 @@ html.fixed {
 }
 
 .figure article h2 {
-  font-size: 1.5rem;
+  font-size: 10vw
   margin-bottom: 20px;
 }
 
@@ -251,13 +256,25 @@ html.fixed {
   width: 60%;
   height: 2.5px;
   background-color: var(--color-title);
-  margin-top: 8px;
+  margin: 8px 0;
 }
 
-.figure article p {
-  font-size: 0.75rem;
+.figure article p.heading{
+  font-size: var(--size-description);
+
   margin-bottom: 10px;
 }
+.figure article p.description{
+  font-size: var(--size-description);
+
+  margin-bottom: 10px;
+}
+.figure article p.point{
+  font-size: var(--size-description);
+
+  margin-bottom: 10px;
+}
+
 
 /* psychic */
 .psychic {
@@ -277,18 +294,18 @@ html.fixed {
   color: var(--color-title);
 }
 .psychic h2 {
-  font-size: 1rem;
+  font-size: var(--size-title);
   margin-bottom: 40px;
 }
 .psychic p {
-  font-size: 0.75rem;
+  font-size: var(--size-description);
+  line-height: 1.4;
   margin-bottom: 40px;
 }
 
 /* family */
 .family .inner {
   padding: 110px 0;
-  max-width: 80%;
 }
 
 .family .contents {
@@ -299,19 +316,21 @@ html.fixed {
 }
 
 .family .contents img {
-  width: 400px;
   transform: rotate(-2deg);
+  width: 45%;
+  max-width: 45%;
 }
 .family .text-group {
   text-align: center;
   color: var(--color-title);
 }
 .family h2 {
-  font-size: 1rem;
+  font-size: var(--size-title);
   margin-bottom: 40px;
 }
 .family p {
-  font-size: 0.75rem;
+  font-size: var(--size-description);
+  line-height: 1.4;
   margin-bottom: 40px;
 }
 

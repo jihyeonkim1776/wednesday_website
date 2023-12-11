@@ -29,3 +29,16 @@ const swiper = new Swiper(".wrap", {
     slideShadows: false,
   },
 });
+
+const headerEl = document.querySelector("header");
+const menuStarterEl = document.querySelector("header .menu-starter");
+menuStarterEl.addEventListener("click", () => {
+  if (headerEl.classList.contains("menuing")) {
+    headerEl.classList.remove("menuing");
+    searchInputEl.value = "";
+    playScroll();
+  } else {
+    headerEl.classList.add("menuing");
+    stopScroll();
+  }
+});

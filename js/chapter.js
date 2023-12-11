@@ -22,49 +22,6 @@ const swiper = new Swiper(".normal", {
   },
 });
 
-const buttons = document.querySelectorAll(".user button");
-const contentsList = document.querySelectorAll(".figure-profile .info");
-const menuEl = document.querySelector("main header");
-const closeButtons = document.querySelectorAll(".figure-profile .info .close");
-const shadowEl = document.querySelector(".figure-profile .shadow");
-
-let scrollPosition = 0;
-
-const toggleContent = (index) => {
-  if (contentsList[index].classList.contains("show")) {
-    // Closing the modal
-    contentsList[index].classList.remove("show");
-    shadowEl.classList.remove("show-shadow");
-    menuEl.classList.remove("hidden");
-    document.documentElement.classList.remove("fixed");
-
-    // Restore the scroll position
-    window.scrollTo(0, scrollPosition);
-  } else {
-    // Opening the modal
-    // Store the current scroll position
-    scrollPosition = window.scrollY;
-    contentsList[index].classList.add("show");
-    shadowEl.classList.add("show-shadow");
-    menuEl.classList.add("hidden");
-    document.documentElement.classList.add("fixed");
-  }
-};
-
-// Add click event listeners to the buttons
-buttons.forEach((button, index) => {
-  button.addEventListener("click", () => {
-    toggleContent(index);
-  });
-});
-
-// Add click event listeners to the close buttons
-closeButtons.forEach((closeButton, index) => {
-  closeButton.addEventListener("click", () => {
-    toggleContent(index);
-  });
-});
-
 document.addEventListener("DOMContentLoaded", function () {
   const tree1 = document.querySelector(".tree #tree1");
   const tree2 = document.querySelector(".tree #tree2");

@@ -12,6 +12,10 @@ html {
   --color-section: #f5f5f5;
   --color-shadow: rgba(0, 0, 0, 0.4);
   --color-title: rgb(206, 130, 53);
+  --size-title: 4vh;
+  --size-description: 2.5vh;
+  --size-point: 3vh;
+}
 }
 
 * {
@@ -150,7 +154,7 @@ img {
 
 .wrap .content > img {
   width: 100%;
-  margin-bottom: 10px;
+
   filter: grayscale(0.3) brightness(0.7);
   transition: 0.4s ease-in-out;
 }
@@ -195,19 +199,19 @@ img {
 }
 
 .wrap .text-group span {
-  font-size: 3rem;
+  font-size: var(--size-title);
   display: inline-block;
   margin-bottom: 10px;
   font-weight: 100;
 }
 .wrap h2 {
   margin-top: 160px;
-  font-size: 1.5rem;
+  font-size: var(--size-title);
   font-family: "Playfair Display", serif;
   font-weight: 600;
 }
 .wrap p {
-  font-size: 0.75rem;
+  font-size: var(--size-description);
   font-family: "Playfair Display", serif;
   font-weight: 400;
 }

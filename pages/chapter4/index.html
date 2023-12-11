@@ -23,11 +23,16 @@
     <main>
       <header>
         <nav>
-          <h1><a href="/">logo</a></h1>
           <ul class="menu">
-            <li>
-              <a href="../chapter1/">chapter1</a>
+            <li class="menu-starter">
+              <div>
+                <span></span>
+                <span></span>
+              </div>
             </li>
+
+            <li><a href="/">logo</a></li>
+
             <li>
               <a href="../chapter2/">chapter2</a>
             </li>
@@ -35,12 +40,33 @@
               <a href="../chapter3/">chapter3</a>
             </li>
             <li>
+              <a href="../chapter4/">chapter4</a>
+            </li>
+            <li>
               <a href="../chapter5/">chapter5</a>
             </li>
           </ul>
+
+          <div class="clone-menu">
+            <ul>
+              <li><a href="/">logo</a></li>
+
+              <li>
+                <a href="../chapter2/">chapter2</a>
+              </li>
+              <li>
+                <a href="../chapter3/">chapter3</a>
+              </li>
+              <li>
+                <a href="../chapter4/">chapter4</a>
+              </li>
+              <li>
+                <a href="../chapter5/">chapter5</a>
+              </li>
+            </ul>
+          </div>
         </nav>
       </header>
-
       <div id="content">
         <figure>
           <a href="#" class="menu"> <i class="fas fa-bars"></i> </a>
@@ -91,8 +117,9 @@
                 <img src="../../images/card-back.png" alt="" />
               </div>
               <div class="item flip-card-back">
-                <img src="../../images/card5.png" alt="" />
+                <img src="../../images/card4.png" alt="" />
               </div>
+              <div class="text"><p>The Hermit</p></div>
             </article>
             <article class="flip-card-inner">
               <div class="item flip-card-front">
@@ -134,7 +161,7 @@
       let i = 0;
 
       for (let el of lists) {
-        el.style.transform = `rotate(${deg * i}deg) translateY(-70vh)`;
+        el.style.transform = `rotate(${deg * i}deg) translateY(-64vh)`;
         i++;
       }
 
@@ -180,12 +207,25 @@
 
           setTimeout(() => {
             for (let el of lists) {
-              el.style.transform = `rotate(${deg * i}deg) translateY(-70vh)`;
+              el.style.transform = `rotate(${deg * i}deg) translateY(-64vh)`;
               i++;
             }
             isAnimating = false;
           }, 4500);
         });
+      });
+
+      const headerEl = document.querySelector("header");
+      const menuStarterEl = document.querySelector("header .menu-starter");
+      menuStarterEl.addEventListener("click", () => {
+        if (headerEl.classList.contains("menuing")) {
+          headerEl.classList.remove("menuing");
+          searchInputEl.value = "";
+          playScroll();
+        } else {
+          headerEl.classList.add("menuing");
+          stopScroll();
+        }
       });
     </script>
   </body>
